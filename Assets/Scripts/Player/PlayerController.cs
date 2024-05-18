@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public CapsuleCollider2D collider2D;
     public PhysicsCheck physicsCheck;
+    public PlaySkill playSkill;
 
     public Vector2 inputDirection;
     [Header("基本參數")]
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
         collider2D = GetComponent<CapsuleCollider2D>();
         physicsCheck = GetComponent<PhysicsCheck>();
 
-        inputControl.GamePlay.Jump.started += Jump;
+        inputControl.GamePlay.Jump.started += newJump;
         //inputControl.GamePlay.ShowText.performed += ShowMessage;
     }
 
@@ -41,8 +42,25 @@ public class PlayerController : MonoBehaviour
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
-            IncreaseColliderSize();
+            //IncreaseColliderSize();
             Debug.LogError("1234");
+        }
+
+
+        if (Keyboard.current.jKey.wasPressedThisFrame)
+        {
+            playSkill.Flash();
+        }
+        if (Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            playSkill.Health();
+        }
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            if (!playSkill.speedCoolDown)
+            {
+                StartCoroutine(playSkill.AddSpeed());
+            }
         }
     }
 
@@ -81,6 +99,24 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
-        //Debug.LogError("jj");
     }
+
+
+    private int extraJump;
+    private void newJump(InputAction.CallbackContext obj)
+    {
+        if (physicsCheck.isGround)
+        {
+            extraJump = 2;
+        }
+        if (extraJump > 0)
+        {
+            rb.velocity = Vector2.zero; // 將線速度設置為零
+            rb.angularVelocity = 0f;    // 將角速度設置為零
+            rb.Sleep();                 // 讓剛體進入休眠狀態，以防止受到任何剩餘力的影響
+            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            extraJump--;
+        }
+    }
+
 }

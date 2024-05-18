@@ -23,6 +23,15 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void AddHealth(int heart)
+    {
+        currentHealth += heart;
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
     public int GetCurrentHealth()
     {
         return currentHealth;
