@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         collider2D = GetComponent<CapsuleCollider2D>();
         physicsCheck = GetComponent<PhysicsCheck>();
 
-        inputControl.GamePlay.Jump.started += newJump;
+        inputControl.GamePlay.Jump.started += Jump;
         //inputControl.GamePlay.ShowText.performed += ShowMessage;
     }
 
@@ -93,30 +93,11 @@ public class PlayerController : MonoBehaviour
         collider2D.size += new Vector2(sizeChangeAmount, sizeChangeAmount);
     }
 
-    private void Jump(InputAction.CallbackContext obj)
+    public void Jump(InputAction.CallbackContext obj)
     {
         if (physicsCheck.isGround)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
     }
-
-
-    private int extraJump;
-    private void newJump(InputAction.CallbackContext obj)
-    {
-        if (physicsCheck.isGround)
-        {
-            extraJump = 2;
-        }
-        if (extraJump > 0)
-        {
-            rb.velocity = Vector2.zero; // 將線速度設置為零
-            rb.angularVelocity = 0f;    // 將角速度設置為零
-            rb.Sleep();                 // 讓剛體進入休眠狀態，以防止受到任何剩餘力的影響
-            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-            extraJump--;
-        }
-    }
-
 }
