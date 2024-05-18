@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlaySkill playSkill;
 
     public Vector2 inputDirection;
-    [Header("°ò¥»°Ñ¼Æ")]
+    [Header("ï¿½ò¥»°Ñ¼ï¿½")]
     public float Speed;
     public float jumpForce;
     private void Awake()
@@ -40,9 +40,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (Keyboard.current.wKey.wasPressedThisFrame)
         {
-            //IncreaseColliderSize();
             Debug.LogError("1234");
         }
 
@@ -81,8 +80,8 @@ public class PlayerController : MonoBehaviour
 
     private void ShowMessage(InputAction.CallbackContext context)
     {
-        Debug.LogError("A1 ³Q«ö¤U¤F¡I");
-        //displayText.text = "1 ³Q«ö¤U¤F¡I";
+        Debug.LogError("A1 ï¿½Qï¿½ï¿½ï¿½Uï¿½Fï¿½I");
+        //displayText.text = "1 ï¿½Qï¿½ï¿½ï¿½Uï¿½Fï¿½I";
     }
 
 

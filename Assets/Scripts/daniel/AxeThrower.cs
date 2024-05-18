@@ -5,25 +5,25 @@ using UnityEngine.InputSystem;
 
 public class AxeThrower : MonoBehaviour
 {
-    [Tooltip("©òÀY¹w¸mª«")]
+    [Tooltip("ï¿½ï¿½ï¿½Yï¿½wï¿½mï¿½ï¿½")]
     public GameObject axePrefab;
-    [Tooltip("©òÀYµo®gÂI")]
+    [Tooltip("ï¿½ï¿½ï¿½Yï¿½oï¿½gï¿½I")]
     public Transform throwPoint;
-    [Tooltip("µo®g¤O¶q")]
+    [Tooltip("ï¿½oï¿½gï¿½Oï¿½q")]
     public float throwForce = 7f;
-    [Tooltip("¦V¤W¤O¶q")]
+    [Tooltip("ï¿½Vï¿½Wï¿½Oï¿½q")]
     public float upwardForce = 2f;
-    [Tooltip("§N«o®É¶¡")]
+    [Tooltip("ï¿½Nï¿½oï¿½É¶ï¿½")]
     public float cooldownTime = 1f;
     private float cooldownTimer;
-    [Tooltip("©òÀY¼Ò¦¡")]
+    [Tooltip("ï¿½ï¿½ï¿½Yï¿½Ò¦ï¿½")]
     public AxeMode currentMode = AxeMode.Parabolic;
 
     public enum AxeMode
     {
-        Parabolic,// ´¶³q©ßª«½u
-        Straight, // ª½½u
-        FastParabolic // §Ö³t©ßª«½u
+        Parabolic,// ï¿½ï¿½ï¿½qï¿½ßªï¿½ï¿½u
+        Straight, // ï¿½ï¿½ï¿½u
+        FastParabolic // ï¿½Ö³tï¿½ßªï¿½ï¿½u
     }
 
 
@@ -68,18 +68,18 @@ public class AxeThrower : MonoBehaviour
             {
                 case AxeMode.Parabolic:
                     Vector2 parabolicDirection = new Vector2(direction.x * throwForce, direction.y * throwForce + upwardForce);
-                    rb.gravityScale = 1; // «ìÎ`­«¤O
+                    rb.gravityScale = 1; // ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½O
                     rb.AddForce(parabolicDirection, ForceMode2D.Impulse);
                     cooldownTime = 1f;
                     break;
                 case AxeMode.Straight:
-                    rb.gravityScale = 0; // ¸T¥Î­«¤O
+                    rb.gravityScale = 0; // ï¿½Tï¿½Î­ï¿½ï¿½O
                     rb.velocity = direction * throwForce;
                     cooldownTime = 1f;
                     break;
                 case AxeMode.FastParabolic:
                     Vector2 fastParabolicDirection = new Vector2(direction.x * throwForce * 2, direction.y * throwForce * 2 + upwardForce);
-                    rb.gravityScale = 1; // «ì´_­«¤O
+                    rb.gravityScale = 1; // ï¿½ï¿½_ï¿½ï¿½ï¿½O
                     rb.AddForce(fastParabolicDirection, ForceMode2D.Impulse);
                     cooldownTime = 0.5f;
                     break;
