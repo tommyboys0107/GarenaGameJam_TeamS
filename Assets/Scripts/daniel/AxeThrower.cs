@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AxeThrower : MonoBehaviour
 {
@@ -25,14 +26,16 @@ public class AxeThrower : MonoBehaviour
         FastParabolic // 快速拋物線
     }
 
+
     void Update()
     {
-        //cooldownTimer -= Time.deltaTime;
-        //if (Input.GetMouseButtonDown(0) && cooldownTimer <= 0f)
-        //{
-        //    ThrowAxe();
-        //    cooldownTimer = cooldownTime;
-        //}
+        cooldownTimer -= Time.deltaTime;
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f)
+        {
+            ThrowAxe();
+            cooldownTimer = cooldownTime;
+        }
 
         //if (Input.GetKeyDown(KeyCode.Alpha1))
         //{
@@ -48,7 +51,7 @@ public class AxeThrower : MonoBehaviour
         //}
     }
 
-    void ThrowAxe()
+    public void ThrowAxe()
     {
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
@@ -57,7 +60,7 @@ public class AxeThrower : MonoBehaviour
 
         if (rb != null)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             mousePosition.z = 0; 
             Vector2 direction = (mousePosition - throwPoint.position).normalized;
 
