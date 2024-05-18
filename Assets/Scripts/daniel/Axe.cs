@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
+    public int damage = 10;
+
     private void Start()
     {
         Destroy(gameObject, 2f);
     }
-    
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Triggered by: " + collision.name);
 
@@ -20,12 +22,16 @@ public class Axe : MonoBehaviour
             Character playerHealth = collision.GetComponent<Character>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(10);
+                playerHealth.TakeDamage(damage);
                 Debug.Log("Player Health after damage: " + playerHealth.GetCurrentHealth());
             }
             Destroy(gameObject);
         }
         else if (collision.CompareTag("BG"))
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Shield"))
         {
             Destroy(gameObject);
         }
