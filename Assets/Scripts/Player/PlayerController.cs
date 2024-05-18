@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (Keyboard.current.wKey.wasPressedThisFrame)
         {
             EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.Flash);
         }
