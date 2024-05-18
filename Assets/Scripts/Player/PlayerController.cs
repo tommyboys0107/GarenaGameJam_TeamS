@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
         inputControl.GamePlay.Jump.started += Jump;
         //inputControl.GamePlay.ShowText.performed += ShowMessage;
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0, 1), Mathf.Clamp(transform.position.y, 0, 1), 0);
     }
 
     private void OnEnable()
@@ -122,7 +124,12 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
+        //0~5
+        //newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
+
+
         rb.velocity = new Vector2(this.inputDirection.x * Speed * Time.deltaTime, rb.velocity.y);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 5), Mathf.Clamp(transform.position.y, 0, 4), 0);
     }
 
     private void ShowMessage(InputAction.CallbackContext context)

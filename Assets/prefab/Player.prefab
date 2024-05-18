@@ -64,7 +64,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.29, y: 0.88, z: 0}
-  m_LocalScale: {x: 2.5000002, y: 2.5000002, z: 2.5}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3124597859052712818}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecdd0fb6ce4ead47b97009f1f1cb68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttomOffset: {x: 0, y: -0.8}
+  buttomOffset: {x: 0, y: -0.4}
   checkRaduis: 0.08
   groundLayer:
     serializedVersion: 2
@@ -170,7 +170,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.09149532}
-  m_Size: {x: 0.24699214, y: 0.8526178}
+  m_Size: {x: 0.24699216, y: 0.4497304}
   m_Direction: 0
 --- !u!114 &1144783429889860518
 MonoBehaviour:
@@ -203,8 +203,7 @@ MonoBehaviour:
   FlashCoolTime: 0
   healthNumber: 50
   SpeedNumber: 150
-  SpeedTime: 5
-  SpeedCoolTime: 0
+  ShieldCoolTime: 0
   shieldTime: 15
   canFlash: 0
   canHealth: 0
@@ -595,7 +594,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4061117277042804498}
