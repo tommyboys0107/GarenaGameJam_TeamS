@@ -27,25 +27,25 @@ public class AxeThrower : MonoBehaviour
 
     void Update()
     {
-        cooldownTimer -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && cooldownTimer <= 0f) 
-        {
-            ThrowAxe();
-            cooldownTimer = cooldownTime;
-        }
+        //cooldownTimer -= Time.deltaTime;
+        //if (Input.GetMouseButtonDown(0) && cooldownTimer <= 0f)
+        //{
+        //    ThrowAxe();
+        //    cooldownTimer = cooldownTime;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentMode = AxeMode.Parabolic;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentMode = AxeMode.Straight;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            currentMode = AxeMode.FastParabolic;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    currentMode = AxeMode.Parabolic;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    currentMode = AxeMode.Straight;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    currentMode = AxeMode.FastParabolic;
+        //}
     }
 
     void ThrowAxe()
