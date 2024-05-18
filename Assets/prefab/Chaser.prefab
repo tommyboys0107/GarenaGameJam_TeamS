@@ -201,10 +201,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 7357609603148862458, guid: 1da6fd72dd2368b4fadae8263c432233,
     type: 3}
+  FeintsAxe: {fileID: 3885778401185885479, guid: 21a1edbbabd81b54b989d932fd445d1d,
+    type: 3}
   throwPoint: {fileID: 4739722767269378941}
   throwForce: 7
   upwardForce: 2
   cooldownTime: 1
+  isBoomerang: 0
+  canUseTrajectoryWeapon: 0
   currentMode: 0
 --- !u!4 &812545761794557361 stripped
 Transform:
