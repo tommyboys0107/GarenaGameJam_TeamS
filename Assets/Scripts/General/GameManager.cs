@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -10,20 +11,17 @@ namespace CliffLeeCL
     /// </summary>
     public class GameManager : SingletonMono<GameManager>
     {
-        /// <summary>
-        /// Define how long a single round is.
-        /// </summary>
-        public float roundTime = 60.0f;
+        public float ElapsedRoundTime { get; private set; }
         
-        public int chooseSkillCount = 3;
-        
-        public float ElapsedTime { get; private set; }
+        [SerializeField] float roundTime = 60.0f;
+        [SerializeField] float chooseSkillTime = 10.0f;
+        [SerializeField] int chooseSkillCount = 3;
         
         ProgressBar progressBar;
-
-        /// <summary>
-        /// Is true when the game is over.
-        /// </summary>
+        List<ChooseSkillUI> chooseSkillUIList;
+        List<ChaserSkill> chaserSkillList;
+        List<EscaperSkill> escaperSkillList;
+        float currentChooseSkillIndex = 0;
         bool isGameOver = false;
 
         /// <summary>
@@ -33,6 +31,7 @@ namespace CliffLeeCL
         {
             base.Awake();
             SceneManager.sceneLoaded += OnSceneLoaded;
+            EventManager.Instance.onGameOver += OnGameOver;
         }
 
         /// <summary>
@@ -42,13 +41,21 @@ namespace CliffLeeCL
         {
             if (!isGameOver)
             {
-                ElapsedTime += Time.deltaTime;
-                if (ElapsedTime >= roundTime)
+                ElapsedRoundTime += Time.deltaTime;
+                var nextChooseSkillTime = (currentChooseSkillIndex + 1f) / (chooseSkillCount + 1f) * roundTime;
+                if (ElapsedRoundTime >= nextChooseSkillTime)
+                {
+                    foreach (var chooseSkill in chooseSkillUIList)
+                    {
+                        chooseSkill.Init(chaserSkillList, escaperSkillList, chooseSkillTime);
+                    }
+                }
+                else if(ElapsedRoundTime >= roundTime)
                 {
                     OnRoundTimeIsUp();
                     return;
                 }
-                progressBar.SetProgress(ElapsedTime / roundTime);
+                progressBar.SetProgress(ElapsedRoundTime / roundTime);
             }
         }
 
@@ -57,6 +64,7 @@ namespace CliffLeeCL
         /// </summary>
         void OnDisable() {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            EventManager.Instance.onGameOver -= OnGameOver;
         }
 
         /// <summary>
@@ -74,21 +82,24 @@ namespace CliffLeeCL
         
         void InitializeGame()
         {
-            ElapsedTime = 0.0f;
+            ElapsedRoundTime = 0.0f;
             isGameOver = false;
             progressBar = FindObjectOfType<ProgressBar>();
             progressBar.GenerateSkillTrigger(chooseSkillCount);
+            chooseSkillUIList = new List<ChooseSkillUI>(FindObjectsOfType<ChooseSkillUI>());
+            chaserSkillList = new List<ChaserSkill>();
+            escaperSkillList = new List<EscaperSkill>();
+            EventManager.Instance.OnGameStart();
         }
 
         void OnRoundTimeIsUp()
         {
-            GameOver();
+            EventManager.Instance.OnGameOver();
         }
 
-        void GameOver()
+        void OnGameOver()
         {
             isGameOver = true;
-            EventManager.Instance.OnGameOver();
             Time.timeScale = 0.0f;
         }
     }

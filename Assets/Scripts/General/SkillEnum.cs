@@ -5,7 +5,8 @@ public enum ChaserSkill
     AxeThrowFaster = 3,
     AxeDamageUp = 4,
     AxeBoomerang = 5,
-    FakeGhostWeapon = 6
+    FakeGhostWeapon = 6,
+    Max
 }
 
 public enum EscaperSkill
@@ -15,4 +16,5 @@ public enum EscaperSkill
     SpeedUp = 3,
     Shield = 4,
     DoubleJump = 5,
+    Max
 }

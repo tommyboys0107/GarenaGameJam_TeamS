@@ -31,6 +31,7 @@ namespace CliffLeeCL
         /// The event is called when game over.
         /// </summary>
         public event Action onGameOver;
+        public event Action onGameStart;
         
         public event Action<ChaserSkill> onChooseChaserSkill;
         public event Action<EscaperSkill> onChooseEscaperSkill;
@@ -39,6 +40,12 @@ namespace CliffLeeCL
         {
             onGameOver?.Invoke();
             Debug.Log("OnGameOver event is invoked!");
+        }
+        
+        public void OnGameStart()
+        {
+            onGameStart?.Invoke();
+            Debug.Log("OnGameStart event is invoked!");
         }
         
         public void OnChooseChaserSkill(ChaserSkill skill)
