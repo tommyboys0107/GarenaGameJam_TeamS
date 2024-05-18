@@ -5,12 +5,6 @@ using UnityEngine.Serialization;
 
 public class ChooseSkillUI : MonoBehaviour
 {
-    enum SkillType
-    {
-        Chaser,
-        Escaper,
-    }
-    
     float chooseSkillTime;
     float elapsedChooseSkillTime = 0;
     bool startChooseSkill = false;

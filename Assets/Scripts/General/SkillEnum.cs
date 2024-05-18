@@ -1,3 +1,9 @@
+public enum SkillType
+{
+    Chaser,
+    Escaper,
+}
+
 public enum ChaserSkill
 {
     AxeStraightThrow = 1,
