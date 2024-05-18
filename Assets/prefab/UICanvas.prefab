@@ -1387,6 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc4b44b3a564f4fbdd077fd247b222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 443050660560853196}
   skillTriggerHolder: {fileID: 1640973764386649928}
   skillTriggerPrefab: {fileID: 7027902405074518772, guid: 466fe49785b4bf44b86f76b4bc2ba3eb,
     type: 3}

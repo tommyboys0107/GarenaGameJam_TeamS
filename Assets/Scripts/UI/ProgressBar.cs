@@ -1,13 +1,18 @@
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    [SerializeField]
-    Transform skillTriggerHolder;
-    [SerializeField]
-    GameObject skillTriggerPrefab;
+    [SerializeField] Slider progressBar;
+    [SerializeField] Transform skillTriggerHolder;
+    [SerializeField] GameObject skillTriggerPrefab;
+    
+    public void SetProgress(float progress)
+    {
+        progressBar.value = progress;
+    }
     
     [Button("GenerateSkillTrigger")]
     public void GenerateSkillTrigger(int number)
