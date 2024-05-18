@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Plugins/Sirenix/Odin Inspector/Config/Resources.meta
 guid: f6c7e88bed0595240ad5354b03b2be24
+========
+guid: 45b81131611414a4cb9d2d0eb704ab45
+>>>>>>>> Stashed changes:Assets/Plugins/Sirenix/Odin Inspector/Config/Resources/Sirenix.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
