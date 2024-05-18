@@ -274,7 +274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6846176155188314589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -336,5 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillIconConfig: {fileID: 0}
-  skillType: 0
+  baseIcon: {fileID: 1496788103627113237}
   skillIcon: {fileID: 7339650960019082744}
+  disableOnChoose: 0

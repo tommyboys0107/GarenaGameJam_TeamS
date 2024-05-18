@@ -38,6 +38,9 @@ public class ChooseSkillUI : MonoBehaviour
     {
         var remainingChaserSkillList = new List<ChaserSkill>((ChaserSkill[])Enum.GetValues(typeof(ChaserSkill)));
         var remainingEscaperSkillList = new List<EscaperSkill>((EscaperSkill[])Enum.GetValues(typeof(EscaperSkill)));
+        
+        remainingChaserSkillList.RemoveAll(chaserSkillList.Contains);
+        remainingEscaperSkillList.RemoveAll(escaperSkillList.Contains);
         chooseSkillTime = chooseTime;
         elapsedChooseSkillTime = 0;
         foreach (var skillUI in skillUIList)
@@ -47,20 +50,18 @@ public class ChooseSkillUI : MonoBehaviour
             var randomIndex = 0;
             if (skillType == SkillType.Chaser)
             {
-                remainingChaserSkillList.RemoveAll(chaserSkillList.Contains);
                 randomIndex = Random.Range(0, remainingChaserSkillList.Count);
                 availableSkill = (int)remainingChaserSkillList[randomIndex];
                 remainingChaserSkillList.RemoveAt(randomIndex);
             }
             else
             {
-                remainingEscaperSkillList.RemoveAll(escaperSkillList.Contains);
                 randomIndex = Random.Range(0, remainingEscaperSkillList.Count);
                 availableSkill = (int)remainingEscaperSkillList[randomIndex];
                 remainingEscaperSkillList.RemoveAt(randomIndex);
             }
             
-            skillUI.Init(availableSkill);
+            skillUI.Init(availableSkill, skillType);
         }
         
         startChooseSkill = true;

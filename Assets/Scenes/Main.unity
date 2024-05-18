@@ -490,11 +490,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 22af2d4289f1f0b4eb720de0da767e1d,
         type: 2}
+    - target: {fileID: 4437105626314195456, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146872088981925682, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 562200662}
+    - target: {fileID: 5198200206215368477, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5361253494641310320, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: skillType
@@ -625,6 +635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.4666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475783348191770954, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -827,6 +842,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &944240480 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1367700305645535109, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1211627581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -922,6 +943,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 812545761794557361, guid: 1d9ad26c5bd73f24db97c5055437f3df,
     type: 3}
   m_PrefabInstance: {fileID: 1211627581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1223105884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7496401687242102569, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1223105889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223105884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e521fad340904480b21ff050eb727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillUIPrefab: {fileID: 3688777332300302186, guid: 336bce8e9d17d274dbf4d4ab79dc6935,
+    type: 3}
+  chaserSkillUIHolder: {fileID: 1662825888}
+  escaperSkillUIHolder: {fileID: 944240480}
+  chaserSkillIconConfig: {fileID: 11400000, guid: 788434f7bb8fa5c40bc71d9647ec3419,
+    type: 2}
+  escaperSkillIconConfig: {fileID: 11400000, guid: 22af2d4289f1f0b4eb720de0da767e1d,
+    type: 2}
+  chaserSkillBaseColor: {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
+  escaperSkillBaseColor: {r: 0.4666667, g: 0.6471967, b: 1, a: 1}
+--- !u!224 &1662825888 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 450725580054085352, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1819757758
 GameObject:
@@ -1033,11 +1088,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 788434f7bb8fa5c40bc71d9647ec3419,
         type: 2}
+    - target: {fileID: 4437105626314195456, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146872088981925682, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 562200662}
+    - target: {fileID: 5198200206215368477, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5525155453464618608, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: skillIconConfig
@@ -1143,6 +1208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475783348191770954, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1413,9 +1483,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4142285119771548391, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
+    - {fileID: 7421787544679398909, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
+    - {fileID: 2083874159605393690, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
+    - {fileID: 896708453908526154, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
+    - {fileID: 713755260622183565, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
+    - {fileID: 4560156709595877525, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7496401687242102569, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1223105889}
   m_SourcePrefab: {fileID: 100100000, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

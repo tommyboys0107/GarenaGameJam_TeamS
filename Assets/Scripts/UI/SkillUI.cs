@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class SkillUI : MonoBehaviour
 {
     [SerializeField] SkillIconConfig skillIconConfig;
-    [SerializeField] SkillType skillType;
+    [SerializeField] Image baseIcon;
     [SerializeField] Image skillIcon;
+    [SerializeField] bool disableOnChoose = false;
     
+    SkillType skillType;
     int currentSkillIndex;
 
     private void OnEnable()
@@ -26,7 +28,7 @@ public class SkillUI : MonoBehaviour
     
     private void OnChooseEscaperSkill(EscaperSkill obj)
     {
-        if (skillType == SkillType.Escaper)
+        if (skillType == SkillType.Escaper && disableOnChoose)
         {
             gameObject.SetActive(false);
         }
@@ -34,17 +36,24 @@ public class SkillUI : MonoBehaviour
 
     private void OnChooseChaserSkill(ChaserSkill obj)
     {
-        if (skillType == SkillType.Chaser)
+        if (skillType == SkillType.Chaser && disableOnChoose)
         {
             gameObject.SetActive(false);
         }
     }
 
-    public void Init(int skillIndex)
+    public void Init(int skillIndex, SkillType type, SkillIconConfig iconConfig = null)
     {
         gameObject.SetActive(true);
         currentSkillIndex = skillIndex;
+        skillType = type;
+        skillIconConfig = iconConfig ?? skillIconConfig;
         skillIcon.sprite = skillIconConfig.GetSkillIcon(currentSkillIndex);
+    }
+    
+    public void SetBaseColor(Color color)
+    {
+        baseIcon.color = color;
     }
 
     public void Hide()
