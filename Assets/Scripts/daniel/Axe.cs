@@ -17,7 +17,7 @@ public class Axe : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            Character playerHealth = collision.GetComponent<Character>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(10);
