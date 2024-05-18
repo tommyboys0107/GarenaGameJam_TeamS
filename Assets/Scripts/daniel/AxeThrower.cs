@@ -13,11 +13,11 @@ public class AxeThrower : MonoBehaviour
     // 拋射點
     public Transform throwPoint;
     // 拋射力道
-    public float throwForce = 8f;
+    public float throwForce = -8f;
     // 上升力道
     public float upwardForce = 2f;
     // 冷卻時間
-    public float cooldownTime = 1f;
+    public float cooldownTime = 2f;
     // 飛行速度
     public float speed = 0.8f;
     // 冷卻計時器
@@ -31,23 +31,23 @@ public class AxeThrower : MonoBehaviour
     public bool isBoomerang = false;
     // 可以使用軌跡武器
     public bool canUseTrajectoryWeapon = false;
+    // 是否可以攻擊
+    public bool canAtt = true;
 
     public AxeMode currentMode = AxeMode.Parabolic;
+    private TrajectoryRenderer trajectoryRenderer;
 
     public enum AxeMode
     {
         Parabolic,
         Straight, 
-        FastParabolic ,
-        DecreaseCD ,
-        DamageADD, 
-        BoomerangDart 
     }
 
     private void OnEnable()
     {
         //監聽中控傳來技能升級
         EventManager.Instance.onChooseChaserSkill += ChooseAxeMode;
+        trajectoryRenderer = FindObjectOfType<TrajectoryRenderer>();
     }
 
     private void OnDisable()
@@ -66,36 +66,55 @@ public class AxeThrower : MonoBehaviour
         {
           case ChaserSkill.AxeStraightThrow:
               //直線
+              Debug.Log("直線");
               currentMode = AxeMode.Straight;
               break;
           case ChaserSkill.AxeFlyFaster:
+                Debug.Log("快速飛行");
                //快速拋射
-               speed *=2;
+               speed *=1.7f;
+               throwForce*=0.7f;
               break;
           case ChaserSkill.AxeThrowFaster:
-               //CD--
-               cooldownTime = 0.5f;
-               break;
+                Debug.Log("CD--");
+                //CD--
+                cooldownTime /= 2;
+                break;
           case ChaserSkill.AxeDamageUp:
+                Debug.Log("傷害+");
                //傷害+
-               damage = 20;
+               damage *= 2;
               break;
           case ChaserSkill.AxeBoomerang:
+                Debug.Log("回旋飛鏢");
                //回旋飛鏢
                isBoomerang = true;
               break;
           case ChaserSkill.FakeGhostWeapon:
+               Debug.Log("假武器");
               //假武器
               canUseTrajectoryWeapon = true;
               break;
       }
     }
 
+    void CanNotAtt()
+    {
+        canAtt = false;
+        StartCoroutine(waitCanAtt());
+    }
+
+    IEnumerator waitCanAtt()
+    {
+        yield return new WaitForSeconds(1.0f);
+        canAtt = true;
+    }
+
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
         // 按下滑鼠左鍵並且冷卻時間小於等於0
-        if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f)
+        if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f && canAtt)
         {
             ThrowAxe();
             cooldownTimer = cooldownTime;
@@ -107,6 +126,7 @@ public class AxeThrower : MonoBehaviour
             if (canUseTrajectoryWeapon)
                 Feints();
         }
+
     }
 
     // 拋出斧頭
@@ -129,12 +149,12 @@ public class AxeThrower : MonoBehaviour
             {
                 case AxeMode.Parabolic:
                     Vector2 parabolicDirection = new Vector2(direction.x * throwForce * speed, direction.y * throwForce* speed+ upwardForce);
-                    rb.gravityScale = gravityScale;
+                    rb.gravityScale = 1;
                     rb.AddForce(parabolicDirection, ForceMode2D.Impulse);
                     axeScript.damage = damage;
                     break;
                 case AxeMode.Straight:
-                    rb.gravityScale = gravityScale;
+                    rb.gravityScale = 0;
                     rb.velocity = direction * throwForce * speed;
                     axeScript.damage = damage;
                     break;
@@ -165,7 +185,12 @@ public class AxeThrower : MonoBehaviour
         }
     }
 
-    // 回力鏢
+    /// <summary>
+    /// 迴力鏢
+    /// </summary>
+    /// <param name="axe"></param>
+    /// <param name="returnPosition"></param>
+    /// <returns></returns>
     IEnumerator BoomerangDart(GameObject axe, Vector3 returnPosition)
     {
         yield return new WaitForSeconds(1.0f);
@@ -194,7 +219,9 @@ public class AxeThrower : MonoBehaviour
         }
     }
 
-    // 假武器
+    /// <summary>
+    /// 假武器
+    /// </summary>
     void Feints()
     {
         Debug.Log("Feints");
@@ -235,7 +262,11 @@ public class AxeThrower : MonoBehaviour
         }
     }
 
-    // 淡出斧頭
+    /// <summary>
+    /// 淡出斧頭
+    /// </summary>
+    /// <param name="axe"></param>
+    /// <returns></returns>
     IEnumerator fadeOutAxe(GameObject axe)
     {
         Material material = axe.GetComponentInChildren<MeshRenderer>().materials[0];
