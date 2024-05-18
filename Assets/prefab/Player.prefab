@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265319758167477941}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.29, y: 0.88, z: 0}
   m_LocalScale: {x: 2.5000002, y: 2.5000002, z: 2.5}
   m_ConstrainProportionsScale: 0
@@ -202,11 +202,17 @@ MonoBehaviour:
   FlashLength: {x: 2, y: 0, z: 0}
   FlashCoolTime: 0
   healthNumber: 50
-  SpeedNumber: 50
+  SpeedNumber: 150
   SpeedTime: 5
   SpeedCoolTime: 0
+  shieldTime: 15
+  canFlash: 0
+  canHealth: 0
+  canSpeed: 0
+  canShield: 0
   canToubleJump: 0
   speedCoolDown: 0
+  ShieldGO: {fileID: 3691770785268024419}
 --- !u!1 &332682585109795916
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,13 +906,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6772254537987917928}
   - component: {fileID: 4042726588391993292}
+  - component: {fileID: 7604268258201530370}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6772254537987917928
 Transform:
   m_ObjectHideFlags: 0
@@ -974,6 +981,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7604268258201530370
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691770785268024419}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000000018626451, y: -0.000000014901161}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &3743352188196057608
 GameObject:
   m_ObjectHideFlags: 0

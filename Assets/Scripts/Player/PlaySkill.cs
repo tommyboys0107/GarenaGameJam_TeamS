@@ -8,50 +8,54 @@ public class PlaySkill : MonoBehaviour
     public PlayerController playerController;
     [Header("技能數值參數")]
     public Vector3 FlashLength;
-    public float FlashCoolTime;
+    public int FlashCoolTime;
     public int healthNumber;
     public int SpeedNumber;
-    public int SpeedTime;
-    public float SpeedCoolTime;
+    public int ShieldCoolTime;
 
-    public float shieldHeart;
     public float shieldTime;
-
-
+    [Header("是否打開技能")]
+    public bool canFlash;
+    public bool canHealth;
+    public bool canSpeed;
+    public bool canShield;
     public bool canToubleJump;
+    public bool speedCoolDown = false;
 
-
+    public GameObject ShieldGO;
     public void reloadSkill()
     {
-        //刪掉普通跳，加載二段跳
-        playerController.inputControl.GamePlay.Jump.started -= playerController.Jump;
-        playerController.inputControl.GamePlay.Jump.started += newJump;
-
-
+        if (canToubleJump)
+        {
+            //刪掉普通跳，加載二段跳
+            playerController.inputControl.GamePlay.Jump.started -= playerController.Jump;
+            playerController.inputControl.GamePlay.Jump.started += newJump;
+        }
     }
 
 
 
     public void Flash()
     {
-        this.transform.position += FlashLength;
+        if (this.canFlash)
+        {
+            this.transform.position += FlashLength;
+        }
     }
 
     public void Health()
     {
-        character.AddHealth(healthNumber);
+        if (this.canHealth)
+        {
+            character.AddHealth(healthNumber);
+        }
     }
 
-    public bool speedCoolDown;
-    public IEnumerator AddSpeed()
+    public void AddSpeed()
     {
         float orignSpeed = playerController.Speed;
         float newSpeed = playerController.Speed + SpeedNumber;
         playerController.Speed = newSpeed;
-        speedCoolDown = true;
-        yield return new WaitForSeconds(SpeedTime);
-        speedCoolDown = false;
-        playerController.Speed = orignSpeed;
     }
 
 
@@ -74,7 +78,26 @@ public class PlaySkill : MonoBehaviour
 
     public IEnumerator Shield()
     {
-        yield return null;
+        if (canShield)
+        {
+            //攻擊到一次、時間到
+            ShieldGO.SetActive(true);
+            yield return new WaitForSeconds(shieldTime);
+            ShieldGO.SetActive(false);
+            Debug.LogError("1234");
+        }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Weapon"))
+        {
+            ShieldGO.SetActive(false);
+            //Destroy(ShieldGO);
+        }
+    }
+
+
+
 
 }

@@ -1,8 +1,10 @@
+using CliffLeeCL;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider2D collider2D;
     public PhysicsCheck physicsCheck;
     public PlaySkill playSkill;
+
 
     public Vector2 inputDirection;
     [Header("�򥻰Ѽ�")]
@@ -29,6 +32,34 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputControl.Enable();
+        EventManager.Instance.onChooseEscaperSkill += OpenSkill;
+    }
+
+    void OpenSkill(EscaperSkill skill) {
+        switch (skill)
+        {
+            case EscaperSkill.Flash:
+                playSkill.canFlash = true;
+                Debug.LogError("OpenFlash");
+                break;
+            case EscaperSkill.Heal:
+                playSkill.canHealth = true;
+                Debug.LogError("OpenFHeal");
+                break;
+            case EscaperSkill.SpeedUp:
+                playSkill.canSpeed = true;
+                Debug.LogError("OpenSpeedUp");
+                break;
+            case EscaperSkill.Shield:
+                playSkill.canShield = true;
+                Debug.LogError("OpenFlash");
+                break;
+            case EscaperSkill.DoubleJump:
+                playSkill.canToubleJump = true;
+                playSkill.reloadSkill();
+                Debug.LogError("OpenFlash");
+                break;
+        }
     }
 
     private void OnDisable()
@@ -40,26 +71,38 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
-            Debug.LogError("1234");
+            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.Flash);
+        }
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.SpeedUp);
+        }
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        {
+            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.DoubleJump);
+        }
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {
+            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.Shield);
         }
 
 
         if (Keyboard.current.jKey.wasPressedThisFrame)
         {
+            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Flash, playSkill.FlashCoolTime);
             playSkill.Flash();
         }
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
+            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Heal, 0);
             playSkill.Health();
         }
         if (Keyboard.current.lKey.wasPressedThisFrame)
         {
-            if (!playSkill.speedCoolDown)
-            {
-                StartCoroutine(playSkill.AddSpeed());
-            }
+            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Shield, playSkill.ShieldCoolTime);
+            StartCoroutine(playSkill.Shield());
         }
     }
 
@@ -71,6 +114,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+
+    void aa()
+    {
     }
 
     public void Move()

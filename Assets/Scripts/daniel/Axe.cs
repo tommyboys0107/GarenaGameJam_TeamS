@@ -29,6 +29,10 @@ public class Axe : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collision.CompareTag("Shield"))
+        {
+            Destroy(gameObject);
+        }
         else
         {
             Destroy(gameObject, 2f);

@@ -36,6 +36,9 @@ namespace CliffLeeCL
         public event Action<ChaserSkill> onChooseChaserSkill;
         public event Action<EscaperSkill> onChooseEscaperSkill;
 
+        public event Action<EscaperSkill,int> onUseEscaperSkill;
+
+
         public void OnGameOver()
         {
             onGameOver?.Invoke();
@@ -59,6 +62,16 @@ namespace CliffLeeCL
             onChooseEscaperSkill?.Invoke(skill);
             Debug.Log("OnChooseEscaperSkill event is invoked!");
         }
+
+
+        public void OnUseEscaperSkill(EscaperSkill skill,int coolTime)
+        {
+            onUseEscaperSkill?.Invoke(skill,coolTime);
+            Debug.Log("OnChooseEscaperSkill event is invoked!");
+        }
+
+
+
     }
 }
 
