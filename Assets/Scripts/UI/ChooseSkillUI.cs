@@ -1,7 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using CliffLeeCL;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class ChooseSkillUI : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class ChooseSkillUI : MonoBehaviour
     bool startChooseSkill = false;
     
     [SerializeField] SkillType skillType;
-    [FormerlySerializedAs("skillPrefab")] [SerializeField] SkillUI skillUIPrefab;
-    [FormerlySerializedAs("skillHolderList")] [FormerlySerializedAs("skillHolder")] [SerializeField] List<Transform> skillUIHolderList = new List<Transform>();
+    [SerializeField] List<SkillUI> skillUIList = new List<SkillUI>();
     
     void Start()
     {
         startChooseSkill = false;
+        foreach (var skillUI in skillUIList)
+        {
+            skillUI.Hide();
+        }
     }
 
     void Update()
@@ -29,33 +33,33 @@ public class ChooseSkillUI : MonoBehaviour
             }
         }
     }
-
+    
     public void Init(List<ChaserSkill> chaserSkillList, List<EscaperSkill> escaperSkillList, float chooseTime)
     {
+        var remainingChaserSkillList = new List<ChaserSkill>((ChaserSkill[])Enum.GetValues(typeof(ChaserSkill)));
+        var remainingEscaperSkillList = new List<EscaperSkill>((EscaperSkill[])Enum.GetValues(typeof(EscaperSkill)));
         chooseSkillTime = chooseTime;
         elapsedChooseSkillTime = 0;
-
-        foreach (var skillUIHolder in skillUIHolderList)
+        foreach (var skillUI in skillUIList)
         {
             // Find available skill
             var availableSkill = 0;
+            var randomIndex = 0;
             if (skillType == SkillType.Chaser)
             {
-                do
-                {
-                    availableSkill = Random.Range(1, (int)ChaserSkill.Max);
-                } while (chaserSkillList.Contains((ChaserSkill)availableSkill));
-
+                remainingChaserSkillList.RemoveAll(chaserSkillList.Contains);
+                randomIndex = Random.Range(0, remainingChaserSkillList.Count);
+                availableSkill = (int)remainingChaserSkillList[randomIndex];
+                remainingChaserSkillList.RemoveAt(randomIndex);
             }
             else
             {
-                do
-                {
-                    availableSkill = Random.Range(1, (int)EscaperSkill.Max);
-                } while (escaperSkillList.Contains((EscaperSkill)availableSkill));
+                remainingEscaperSkillList.RemoveAll(escaperSkillList.Contains);
+                randomIndex = Random.Range(0, remainingEscaperSkillList.Count);
+                availableSkill = (int)remainingEscaperSkillList[randomIndex];
+                remainingEscaperSkillList.RemoveAt(randomIndex);
             }
             
-            var skillUI = Instantiate(skillUIPrefab, skillUIHolder);
             skillUI.Init(availableSkill);
         }
         

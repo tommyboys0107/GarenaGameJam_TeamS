@@ -1,5 +1,5 @@
+using System;
 using CliffLeeCL;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +11,45 @@ public class SkillUI : MonoBehaviour
     
     int currentSkillIndex;
 
+    private void OnEnable()
+    {
+       EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
+       EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
+    }
+
+
+    private void OnDisable()
+    {
+        EventManager.Instance.onChooseChaserSkill -= OnChooseChaserSkill;
+        EventManager.Instance.onChooseEscaperSkill -= OnChooseEscaperSkill;
+    }
+    
+    private void OnChooseEscaperSkill(EscaperSkill obj)
+    {
+        if (skillType == SkillType.Escaper)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnChooseChaserSkill(ChaserSkill obj)
+    {
+        if (skillType == SkillType.Chaser)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public void Init(int skillIndex)
     {
+        gameObject.SetActive(true);
         currentSkillIndex = skillIndex;
         skillIcon.sprite = skillIconConfig.GetSkillIcon(currentSkillIndex);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
     
     public void OnClicked()

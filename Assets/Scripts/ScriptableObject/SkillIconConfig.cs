@@ -12,11 +12,11 @@ public class SkillIconConfig : ScriptableObject
 
     public Sprite GetSkillIcon(int skillIndex)
     {
-        return skillIndex < skillIconArr.Length ? skillIconArr[skillIndex] : null;
+        return skillIndex - 1 < skillIconArr.Length ? skillIconArr[skillIndex - 1] : null;
     }
     
     public string GetSkillInputKey(int skillIndex)
     {
-        return skillIndex < skillInputKeyArr.Length ? skillInputKeyArr[skillIndex] : "";
+        return skillIndex - 1 < skillInputKeyArr.Length ? skillInputKeyArr[skillIndex - 1] : "";
     }
 }

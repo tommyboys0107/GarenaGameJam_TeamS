@@ -1003,46 +1003,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1211627582}
     m_Modifications:
+    - target: {fileID: 332852535246085434, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: skillIconConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 788434f7bb8fa5c40bc71d9647ec3419,
+        type: 2}
     - target: {fileID: 1243282641610341056, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: m_Name
       value: ChooseSkillCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2350562469894168775, guid: ba3d91c314f147d42bd9288386e783d0,
+    - target: {fileID: 4115507317483383661, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
-      propertyPath: m_Name
-      value: SkillUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2350562469894168775, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: skillIconConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 788434f7bb8fa5c40bc71d9647ec3419,
+        type: 2}
     - target: {fileID: 5146872088981925682, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 562200662}
+    - target: {fileID: 5525155453464618608, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: skillIconConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 788434f7bb8fa5c40bc71d9647ec3419,
+        type: 2}
     - target: {fileID: 7337993674523078418, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1082,16 +1070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337993674523078418, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0016666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337993674523078418, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.0016666667
       objectReference: {fileID: 0}
     - target: {fileID: 7337993674523078418, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
@@ -1153,81 +1131,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.4669811
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.4669811
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735433967149408783, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 0.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1223963801}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2350562469894168775, guid: ba3d91c314f147d42bd9288386e783d0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 277773735778405798}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba3d91c314f147d42bd9288386e783d0, type: 3}
---- !u!224 &277773735778405796 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2757994075207114937, guid: ba3d91c314f147d42bd9288386e783d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 277773735778405795}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &277773735778405797 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2350562469894168775, guid: ba3d91c314f147d42bd9288386e783d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 277773735778405795}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &277773735778405798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277773735778405797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664d6a13a95bb824fb91821c1f040f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillIconConfig: {fileID: 0}
-  skillType: 0
-  skillIcon: {fileID: 0}
 --- !u!1001 &5652695379183678720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1250,6 +1158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443050660560853196, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.237
       objectReference: {fileID: 0}
     - target: {fileID: 1875658629874421140, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}

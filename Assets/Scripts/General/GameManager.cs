@@ -21,7 +21,7 @@ namespace CliffLeeCL
         List<ChooseSkillUI> chooseSkillUIList;
         List<ChaserSkill> chaserSkillList;
         List<EscaperSkill> escaperSkillList;
-        float currentChooseSkillIndex = 0;
+        float currentChooseSkillCount = 0;
         bool isGameOver = false;
 
         /// <summary>
@@ -42,13 +42,14 @@ namespace CliffLeeCL
             if (!isGameOver)
             {
                 ElapsedRoundTime += Time.deltaTime;
-                var nextChooseSkillTime = (currentChooseSkillIndex + 1f) / (chooseSkillCount + 1f) * roundTime;
-                if (ElapsedRoundTime >= nextChooseSkillTime)
+                var nextChooseSkillTime = (currentChooseSkillCount + 1f) / (chooseSkillCount + 1f) * roundTime;
+                if (ElapsedRoundTime >= nextChooseSkillTime && currentChooseSkillCount < chooseSkillCount)
                 {
                     foreach (var chooseSkill in chooseSkillUIList)
                     {
                         chooseSkill.Init(chaserSkillList, escaperSkillList, chooseSkillTime);
                     }
+                    currentChooseSkillCount++;
                 }
                 else if(ElapsedRoundTime >= roundTime)
                 {

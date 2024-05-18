@@ -54,20 +54,20 @@ namespace CliffLeeCL
         public void OnChooseChaserSkill(ChaserSkill skill)
         {
             onChooseChaserSkill?.Invoke(skill);
-            Debug.Log("OnChooseChaserSkill event is invoked!");
+            Debug.Log($"OnChooseChaserSkill {skill} event is invoked!");
         }
         
         public void OnChooseEscaperSkill(EscaperSkill skill)
         {
             onChooseEscaperSkill?.Invoke(skill);
-            Debug.Log("OnChooseEscaperSkill event is invoked!");
+            Debug.Log($"OnChooseEscaperSkill {skill} event is invoked!");
         }
 
 
-        public void OnUseEscaperSkill(EscaperSkill skill,int coolTime)
+        public void OnUseEscaperSkill(EscaperSkill skill, int coolTime)
         {
             onUseEscaperSkill?.Invoke(skill,coolTime);
-            Debug.Log("OnChooseEscaperSkill event is invoked!");
+            Debug.Log($"OnChooseEscaperSkill {skill} cd:{coolTime} event is invoked!");
         }
 
 
