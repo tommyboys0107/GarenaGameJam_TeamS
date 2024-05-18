@@ -1,5 +1,6 @@
 using System;
 using CliffLeeCL;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,9 @@ public class SkillUI : MonoBehaviour
     [SerializeField] SkillIconConfig skillIconConfig;
     [SerializeField] Image baseIcon;
     [SerializeField] Image skillIcon;
+    [SerializeField] TMP_Text text;
     [SerializeField] bool disableOnChoose = false;
+    [SerializeField] bool showInputKey = true;
     
     SkillType skillType;
     int currentSkillIndex;
@@ -49,6 +52,10 @@ public class SkillUI : MonoBehaviour
         skillType = type;
         skillIconConfig = iconConfig ?? skillIconConfig;
         skillIcon.sprite = skillIconConfig.GetSkillIcon(currentSkillIndex);
+        if (showInputKey)
+        {
+            text.text = skillIconConfig.GetSkillInputKey(currentSkillIndex);
+        }
     }
     
     public void SetBaseColor(Color color)
