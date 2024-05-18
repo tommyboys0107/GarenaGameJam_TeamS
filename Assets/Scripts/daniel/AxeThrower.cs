@@ -45,9 +45,20 @@ public class AxeThrower : MonoBehaviour
 
     private void OnEnable()
     {
+        //監聽中控傳來技能升級
         EventManager.Instance.onChooseChaserSkill += ChooseAxeMode;
     }
-    
+
+    private void OnDisable()
+    {
+        // 取消監聽
+        EventManager.Instance.onChooseChaserSkill -= ChooseAxeMode;
+    }
+
+    /// <summary>
+    /// 技能升級
+    /// </summary>
+    /// <param name="skill"></param>
     void ChooseAxeMode(ChaserSkill skill)
     {
       switch (skill)
@@ -102,7 +113,7 @@ public class AxeThrower : MonoBehaviour
     {
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
-        axe.transform.rotation = Quaternion.Euler(-90, 90, 0);
+        axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
         StartCoroutine(AxeRevolve(axe));
         Axe axeScript = axe.GetComponent<Axe>();
@@ -139,11 +150,16 @@ public class AxeThrower : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 旋轉斧頭
+    /// </summary>
+    /// <param name="axe"></param>
+    /// <returns></returns>
     IEnumerator AxeRevolve(GameObject axe)
     {
         while (axe != null)
         {
-            axe.transform.Rotate(Vector3.right * 10);
+            axe.transform.Rotate(Vector3.forward * 10);
             yield return null;
         }
     }
@@ -183,7 +199,7 @@ public class AxeThrower : MonoBehaviour
         Debug.Log("Feints");
         GameObject axe = Instantiate(FeintsAxe, throwPoint.position, throwPoint.rotation);
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
-        axe.transform.rotation = Quaternion.Euler(-90, 90, 0);
+        axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
         StartCoroutine(AxeRevolve(axe));
         StartCoroutine(fadeOutAxe(axe));
@@ -221,7 +237,7 @@ public class AxeThrower : MonoBehaviour
     // 淡出斧頭
     IEnumerator fadeOutAxe(GameObject axe)
     {
-        Material material = axe.GetComponent<MeshRenderer>().materials[0];
+        Material material = axe.GetComponentInChildren<MeshRenderer>().materials[0];
         Debug.Log("Material successfully retrieved: " + material.name);
         Color color = material.color;
         color.a = 1.0f;
