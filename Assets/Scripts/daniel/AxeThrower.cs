@@ -13,19 +13,20 @@ public class AxeThrower : MonoBehaviour
     // 拋射點
     public Transform throwPoint;
     // 拋射力道
-    public float throwForce = 7f;
+    public float throwForce = 8f;
     // 上升力道
     public float upwardForce = 2f;
     // 冷卻時間
     public float cooldownTime = 1f;
+    // 飛行速度
+    public float speed = 0.8f;
     // 冷卻計時器
     private float cooldownTimer;
     // 重力
     private float gravityScale = 1f;
     // 傷害
     private int damage = 10;
-    // 飛行速度
-    private float speed = 1f;
+
     // 是否開啟回力鏢
     public bool isBoomerang = false;
     // 可以使用軌跡武器
@@ -69,7 +70,7 @@ public class AxeThrower : MonoBehaviour
               break;
           case ChaserSkill.AxeFlyFaster:
                //快速拋射
-               speed = 2f;
+               speed *=2;
               break;
           case ChaserSkill.AxeThrowFaster:
                //CD--
@@ -159,7 +160,7 @@ public class AxeThrower : MonoBehaviour
     {
         while (axe != null)
         {
-            axe.transform.Rotate(Vector3.forward * 10);
+            axe.transform.Rotate(Vector3.forward * -5);
             yield return null;
         }
     }
@@ -245,7 +246,7 @@ public class AxeThrower : MonoBehaviour
 
         while (material.color.a > 0)
         {
-            color.a -= 0.01f;
+            color.a -= 0.03f;
             material.color = color;
             yield return new WaitForSeconds(0.01f);
         }
