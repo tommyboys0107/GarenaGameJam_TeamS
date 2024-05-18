@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
 namespace CliffLeeCL
@@ -31,6 +30,8 @@ namespace CliffLeeCL
         {
             base.Awake();
             SceneManager.sceneLoaded += OnSceneLoaded;
+            EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
+            EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
             EventManager.Instance.onGameOver += OnGameOver;
         }
 
@@ -65,9 +66,20 @@ namespace CliffLeeCL
         /// </summary>
         void OnDisable() {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            EventManager.Instance.onChooseChaserSkill -= OnChooseChaserSkill;
+            EventManager.Instance.onChooseEscaperSkill -= OnChooseEscaperSkill;
             EventManager.Instance.onGameOver -= OnGameOver;
         }
-
+  
+        private void OnChooseChaserSkill(ChaserSkill skill)
+        {
+            chaserSkillList.Add(skill);
+        }
+        
+        private void OnChooseEscaperSkill(EscaperSkill skill)
+        {
+            escaperSkillList.Add(skill);
+        }
         /// <summary>
         /// This function is called after a new level was loaded.
         /// </summary>
