@@ -31,11 +31,26 @@ namespace CliffLeeCL
         /// The event is called when game over.
         /// </summary>
         public event Action onGameOver;
+        
+        public event Action<ChaserSkill> onChooseChaserSkill;
+        public event Action<EscaperSkill> onChooseEscaperSkill;
 
         public void OnGameOver()
         {
             onGameOver?.Invoke();
             Debug.Log("OnGameOver event is invoked!");
+        }
+        
+        public void OnChooseChaserSkill(ChaserSkill skill)
+        {
+            onChooseChaserSkill?.Invoke(skill);
+            Debug.Log("OnChooseChaserSkill event is invoked!");
+        }
+        
+        public void OnChooseEscaperSkill(EscaperSkill skill)
+        {
+            onChooseEscaperSkill?.Invoke(skill);
+            Debug.Log("OnChooseEscaperSkill event is invoked!");
         }
     }
 }
