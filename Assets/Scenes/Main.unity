@@ -652,10 +652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c413e7d4723a2484fb4ea29a13a113d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 9999
+  roundTime: 60
   chooseSkillTime: 10
   chooseSkillCount: 3
-  uiManger: {fileID: 1817055519}
+  uiManger: {fileID: 0}
 --- !u!4 &920894702
 Transform:
   m_ObjectHideFlags: 0
@@ -786,9 +786,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthEvent: {fileID: 11400000, guid: c3f6d48bce7970c468fc5647fa8f995c, type: 2}
   playerStartBar: {fileID: 1182485331}
-  GG: {fileID: 5652695379183678723}
-  cWin: {fileID: 5652695379183678722}
-  eWin: {fileID: 5652695379183678721}
+  GG: {fileID: 0}
+  cWin: {fileID: 0}
+  eWin: {fileID: 0}
 --- !u!4 &1817055520
 Transform:
   m_ObjectHideFlags: 0
@@ -1487,24 +1487,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a53b6cb6e9197ec4581269b1276f196f, type: 3}
---- !u!1 &5652695379183678721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4479842285237391114, guid: a53b6cb6e9197ec4581269b1276f196f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5652695379183678720}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5652695379183678722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5159185540758196290, guid: a53b6cb6e9197ec4581269b1276f196f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5652695379183678720}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5652695379183678723 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3106658063772831692, guid: a53b6cb6e9197ec4581269b1276f196f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5652695379183678720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -138,11 +138,12 @@ MonoBehaviour:
   FeintsAxe: {fileID: 3885778401185885479, guid: 21a1edbbabd81b54b989d932fd445d1d,
     type: 3}
   throwPoint: {fileID: 7068098329836191357}
-  throwForce: 9
+  throwForce: 6
   upwardForce: 2
   cooldownTime: 1
   speed: 0.8
   offset: 0.7
+  boomerangSpeed: 3
   isBoomerang: 0
   canUseTrajectoryWeapon: 0
   canAtt: 1

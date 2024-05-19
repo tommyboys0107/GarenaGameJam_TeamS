@@ -24,6 +24,7 @@ public class AxeThrower : MonoBehaviour
     // 飛行速度
     public float speed = 0.8f;
     public float offset = 0.5f;
+    public float boomerangSpeed = 3.0f;
     // 冷卻計時器
     private float cooldownTimer;
     // 重力
@@ -72,7 +73,7 @@ public class AxeThrower : MonoBehaviour
     void Remake()
     {
         canAtt = true;
-        throwForce = 9f;
+        throwForce = 6f;
         upwardForce = 2f;
         cooldownTime = 1f;
         speed = 0.8f;
@@ -147,9 +148,10 @@ public class AxeThrower : MonoBehaviour
             cooldownTimer = cooldownTime;
         }
         // 按下滑鼠右鍵
-        if (Mouse.current.rightButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
+        if (Mouse.current.rightButton.wasPressedThisFrame && cooldownTimer <= 0f && !EventSystem.current.IsPointerOverGameObject())
         {
             animator.SetTrigger("Att");
+            cooldownTimer = cooldownTime;
             //可以使用軌跡武器
             if (canUseTrajectoryWeapon)
                 Feints();
@@ -236,7 +238,7 @@ public class AxeThrower : MonoBehaviour
         {
             rb.gravityScale = 0;
             Vector2 directionBack = (returnPosition - axe.transform.position).normalized;
-            rb.velocity = directionBack * throwForce * 4;
+            rb.velocity = directionBack * throwForce * boomerangSpeed;
 
             while (axe != null && (returnPosition - axe.transform.position).magnitude > 0.1f)
             {
