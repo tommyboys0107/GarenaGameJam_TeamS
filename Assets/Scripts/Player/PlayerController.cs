@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
         if (Keyboard.current.jKey.wasPressedThisFrame)
         {
+            playSkill.canFlash = true;
             EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Flash, playSkill.FlashCoolTime);
             playSkill.Flash();
         }
