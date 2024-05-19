@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7735750014001897931}
   - component: {fileID: 9095862004234609809}
   - component: {fileID: 585716469999284281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FeintsAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hatchet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 326086d40f3a03145ad01006757b6062,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

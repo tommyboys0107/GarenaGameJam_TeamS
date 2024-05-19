@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MapAdd : MonoBehaviour
 {
-    public MapPrefab[] map; // ¦s©ñ¦a¹Ï¹w»s¥óªº°}¦C
-    public Transform mapNow; // ²Ä¤@­Ó¦a¹Ï¤ù¬qªº¦ì¸m
-    public int numberOfMaps = 5; // ¥Í¦¨ªº¦a¹Ï¤ù¬q¼Æ¶q
-    public float moveSpeed = 2f; // ¦a¹Ï²¾°Ê³t«×
+    public MapPrefab[] map; // ï¿½sï¿½ï¿½aï¿½Ï¹wï¿½sï¿½óªº°}ï¿½C
+    public Transform mapNow; // ï¿½Ä¤@ï¿½Ó¦aï¿½Ï¤ï¿½ï¿½qï¿½ï¿½ï¿½ï¿½m
+    public int numberOfMaps = 5; // ï¿½Í¦ï¿½ï¿½ï¿½ï¿½aï¿½Ï¤ï¿½ï¿½qï¿½Æ¶q
+    public float moveSpeed = 2f; // ï¿½aï¿½Ï²ï¿½ï¿½Ê³tï¿½ï¿½
     private List<Transform> generatedMaps = new List<Transform>();
 
 
@@ -28,30 +28,30 @@ public class MapAdd : MonoBehaviour
 
     void Awake()
     {
-        // ¥Í¦¨²Ä¤@­Ó¦a¹Ï¤ù¬q
-        Transform previousMap = Instantiate(map[Random.Range(0, map.Length)].transform, mapNow.position, mapNow.rotation);
-        previousMap.gameObject.SetActive(true);
-        generatedMaps.Add(previousMap);
-
-        // ¥Í¦¨¨ä¾lªº¦a¹Ï¤ù¬q
-        for (int i = 1; i < numberOfMaps; i++)
-        {
-            // ­pºâ·s¦a¹Ï¤ù¬qªº¦ì¸m¡A³o¸Ì°²³]¦a¹Ï¤ù¬q¦bx¤è¦V¤W¨Ì¦¸±Æ¦C
-            Vector3 newPosition = previousMap.position + new Vector3(previousMap.localScale.x, 0, 0); // °²³]¦bx¤è¦V±Æ¦C
-
-            // ÀH¾÷¿ï¾Ü¤@­Ó¦a¹Ï¹w»s¥ó¶i¦æ¥Í¦¨
-            Transform newMap = Instantiate(map[Random.Range(0, map.Length)].transform, newPosition, Quaternion.identity);
-            newMap.gameObject.SetActive(true);
-            generatedMaps.Add(newMap);
-
-            // §ó·s previousMap ¥H«K¤U¤@¦¸¥Í¦¨
-            previousMap = newMap;
-        }
+        // // ï¿½Í¦ï¿½ï¿½Ä¤@ï¿½Ó¦aï¿½Ï¤ï¿½ï¿½q
+        // Transform previousMap = Instantiate(map[Random.Range(0, map.Length)].transform, mapNow.position, mapNow.rotation);
+        // previousMap.gameObject.SetActive(true);
+        // generatedMaps.Add(previousMap);
+        //
+        // // ï¿½Í¦ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½aï¿½Ï¤ï¿½ï¿½q
+        // for (int i = 1; i < numberOfMaps; i++)
+        // {
+        //     // ï¿½pï¿½ï¿½sï¿½aï¿½Ï¤ï¿½ï¿½qï¿½ï¿½ï¿½ï¿½mï¿½Aï¿½oï¿½Ì°ï¿½ï¿½]ï¿½aï¿½Ï¤ï¿½ï¿½qï¿½bxï¿½ï¿½Vï¿½Wï¿½Ì¦ï¿½ï¿½Æ¦C
+        //     Vector3 newPosition = previousMap.position + new Vector3(previousMap.localScale.x, 0, 0); // ï¿½ï¿½ï¿½]ï¿½bxï¿½ï¿½Vï¿½Æ¦C
+        //
+        //     // ï¿½Hï¿½ï¿½ï¿½ï¿½Ü¤@ï¿½Ó¦aï¿½Ï¹wï¿½sï¿½ï¿½iï¿½ï¿½Í¦ï¿½
+        //     Transform newMap = Instantiate(map[Random.Range(0, map.Length)].transform, newPosition, Quaternion.identity);
+        //     newMap.gameObject.SetActive(true);
+        //     generatedMaps.Add(newMap);
+        //
+        //     // ï¿½ï¿½s previousMap ï¿½Hï¿½Kï¿½Uï¿½@ï¿½ï¿½ï¿½Í¦ï¿½
+        //     previousMap = newMap;
+        // }
     }
 
     void Update()
     {
-        // Åý¦a¹Ï¤ù¬q½wºC¦V¥ª²¾°Ê
+        // ï¿½ï¿½ï¿½aï¿½Ï¤ï¿½ï¿½qï¿½wï¿½Cï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         foreach (Transform mapTransform in generatedMaps)
         {
             mapTransform.position += Vector3.left * moveSpeed * Time.deltaTime;

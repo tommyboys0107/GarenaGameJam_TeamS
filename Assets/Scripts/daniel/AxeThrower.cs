@@ -23,6 +23,7 @@ public class AxeThrower : MonoBehaviour
     public float cooldownTime = 2f;
     // 飛行速度
     public float speed = 0.8f;
+    public float offset = 0.5f;
     // 冷卻計時器
     private float cooldownTimer;
     // 重力
@@ -162,7 +163,7 @@ public class AxeThrower : MonoBehaviour
         animator.SetTrigger("Att");
         yield return new WaitForSeconds(0.3f);
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
-        axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
+        axe.transform.position = axe.transform.position + axe.transform.up * offset;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
         axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
@@ -256,7 +257,7 @@ public class AxeThrower : MonoBehaviour
     {
         Debug.Log("Feints");
         GameObject axe = Instantiate(FeintsAxe, throwPoint.position, throwPoint.rotation);
-        axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
+        axe.transform.position = axe.transform.position + axe.transform.up * offset;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
         axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
