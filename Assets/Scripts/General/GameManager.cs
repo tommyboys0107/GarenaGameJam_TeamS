@@ -23,6 +23,8 @@ namespace CliffLeeCL
         float currentChooseSkillCount = 0;
         bool isGameOver = false;
 
+        public UIManger uiManger;
+
         /// <summary>
         /// Awake is called when the script instance is being loaded.
         /// </summary>
@@ -107,6 +109,8 @@ namespace CliffLeeCL
 
         void OnRoundTimeIsUp()
         {
+            uiManger.GG.SetActive(true);
+            uiManger.eWin.SetActive(true);
             EventManager.Instance.OnGameOver();
         }
 
