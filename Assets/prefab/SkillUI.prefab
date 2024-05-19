@@ -473,6 +473,17 @@ MonoBehaviour:
   skillIconConfig: {fileID: 0}
   baseIcon: {fileID: 1496788103627113237}
   skillIcon: {fileID: 7339650960019082744}
+  softMask: {fileID: 6451933964128421837}
   text: {fileID: 638813176570692443}
   disableOnChoose: 0
   showInputKey: 1
+  chooseWithKeyboard: 0
+  inputAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f1b8199b-0e3c-4c4b-95c1-97d4895e28e8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0

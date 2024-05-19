@@ -1,4 +1,5 @@
 using CliffLeeCL;
+using Coffee.UISoftMask;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class SkillUI : MonoBehaviour
     [SerializeField] SkillIconConfig skillIconConfig;
     [SerializeField] Image baseIcon;
     [SerializeField] Image skillIcon;
+    [SerializeField] SoftMask softMask;
     [SerializeField] TMP_Text text;
     [SerializeField] bool disableOnChoose = false;
     [SerializeField] bool showInputKey = true;
@@ -45,6 +47,8 @@ public class SkillUI : MonoBehaviour
                 OnClicked();
             }
         }
+        softMask.showMaskGraphic = false;
+        softMask.showMaskGraphic = true;
     }
 
     private void OnChooseEscaperSkill(EscaperSkill obj)
