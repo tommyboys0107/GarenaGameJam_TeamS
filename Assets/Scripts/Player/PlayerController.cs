@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider2D collider2D;
     public PhysicsCheck physicsCheck;
     public PlaySkill playSkill;
-
+    public Animator escapeAnimator;
 
     public Vector2 inputDirection;
     [Header("�򥻰Ѽ�")]
@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
     {
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
 
-
         if (Keyboard.current.jKey.wasPressedThisFrame)
         {
             EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Flash, playSkill.FlashCoolTime);
@@ -130,6 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (physicsCheck.isGround)
         {
+            escapeAnimator.SetTrigger("Jump");
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
     }

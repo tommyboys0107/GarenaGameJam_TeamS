@@ -84,6 +84,7 @@ MonoBehaviour:
   collider2D: {fileID: 3194292600744273008}
   physicsCheck: {fileID: 5833282286187070817}
   playSkill: {fileID: 7132884734773498727}
+  escapeAnimator: {fileID: 353885266622564533}
   inputDirection: {x: 0, y: 0}
   Speed: 290
   jumpForce: 11

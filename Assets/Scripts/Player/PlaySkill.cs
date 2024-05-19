@@ -78,6 +78,7 @@ public class PlaySkill : MonoBehaviour
             playerController.rb.velocity = Vector2.zero; // 將線速度設置為零
             playerController.rb.angularVelocity = 0f;    // 將角速度設置為零
             playerController.rb.Sleep();                 // 讓剛體進入休眠狀態，以防止受到任何剩餘力的影響
+            playerController.escapeAnimator.SetTrigger("Jump");
             playerController.rb.AddForce(transform.up * playerController.jumpForce, ForceMode2D.Impulse);
             extraJump--;
         }
