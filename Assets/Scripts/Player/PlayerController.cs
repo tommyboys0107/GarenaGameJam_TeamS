@@ -102,10 +102,6 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    void aa()
-    {
-    }
-
     public void Move()
     {
         //0~5

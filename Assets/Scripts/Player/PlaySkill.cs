@@ -39,7 +39,14 @@ public class PlaySkill : MonoBehaviour
     {
         if (this.canFlash)
         {
-            this.transform.position += FlashLength;
+            if (playerController.inputDirection.x > 0)
+            {
+                this.transform.position += FlashLength;
+            }
+            if (playerController.inputDirection.x < 0)
+            {
+                this.transform.position -= FlashLength;
+            }
         }
     }
 

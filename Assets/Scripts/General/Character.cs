@@ -29,6 +29,7 @@ public class Character : MonoBehaviour
     public void AddHealth(int heart)
     {
         currentHealth += heart;
+        OnHealthChange?.Invoke(this);
         if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
