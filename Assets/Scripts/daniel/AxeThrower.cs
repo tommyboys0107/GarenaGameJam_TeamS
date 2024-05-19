@@ -21,12 +21,15 @@ public class AxeThrower : MonoBehaviour
     public float upwardForce = 2f;
     // 冷卻時間
     public float cooldownTime = 2f;
+    // 假武器冷卻時間
+    public float cooldownTime_Feints = 0.5f;
     // 飛行速度
     public float speed = 0.8f;
     public float offset = 0.5f;
     public float boomerangSpeed = 3.0f;
     // 冷卻計時器
     private float cooldownTimer;
+    private float cooldownTimer_Feints;
     // 重力
     private float gravityScale = 1f;
     // 傷害
@@ -82,6 +85,7 @@ public class AxeThrower : MonoBehaviour
         isBoomerang = false;
         canUseTrajectoryWeapon = false;
         currentMode = AxeMode.Parabolic;
+        cooldownTime_Feints = 0.5f;
     }
 
     /// <summary>
@@ -141,6 +145,7 @@ public class AxeThrower : MonoBehaviour
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
+        cooldownTimer_Feints -= Time.deltaTime;
         // 按下滑鼠左鍵並且冷卻時間小於等於0
         if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f && canAtt && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -148,10 +153,10 @@ public class AxeThrower : MonoBehaviour
             cooldownTimer = cooldownTime;
         }
         // 按下滑鼠右鍵
-        if (Mouse.current.rightButton.wasPressedThisFrame && cooldownTimer <= 0f && !EventSystem.current.IsPointerOverGameObject())
+        if (Mouse.current.rightButton.wasPressedThisFrame && cooldownTimer_Feints <= 0f && !EventSystem.current.IsPointerOverGameObject())
         {
             animator.SetTrigger("Att");
-            cooldownTimer = cooldownTime;
+            cooldownTimer_Feints = cooldownTime_Feints;
             //可以使用軌跡武器
             if (canUseTrajectoryWeapon)
                 Feints();
