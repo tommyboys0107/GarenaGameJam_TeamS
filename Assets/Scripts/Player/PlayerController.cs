@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
-            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Heal, 0);
+            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Heal, 9999);
             playSkill.Health();
         }
         if (Keyboard.current.lKey.wasPressedThisFrame)

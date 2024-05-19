@@ -8,13 +8,6 @@ public class PlayerStartBar : MonoBehaviour
     public Image HealthImage;
     public Image HealthDailyImage;
 
-    private void Update()
-    {
-        if (HealthDailyImage.fillAmount > HealthImage.fillAmount)
-        {
-            HealthDailyImage.fillAmount -= Time.deltaTime;
-        }
-    }
 
     public void OnhealthChange(float persentage)
     {
