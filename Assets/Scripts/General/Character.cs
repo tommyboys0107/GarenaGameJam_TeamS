@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
     [Header("°ò¥»ÄÝ©Ê")]
-    public int maxHealth = 100;
-    private int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
+    public UnityEvent<Character> OnHealthChange;
 
     public void Start()
     {
@@ -16,6 +18,7 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        OnHealthChange?.Invoke(this);
         Debug.Log("Player Health: " + currentHealth);
         if (currentHealth <= 0)
         {
@@ -32,7 +35,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }
