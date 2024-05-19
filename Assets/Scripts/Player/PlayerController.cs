@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
 
         rb.velocity = new Vector2(this.inputDirection.x * Speed * Time.deltaTime, rb.velocity.y);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 5), Mathf.Clamp(transform.position.y, 0, 4), 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 3), Mathf.Clamp(transform.position.y, 0, 4), 0);
     }
 
     private void ShowMessage(InputAction.CallbackContext context)

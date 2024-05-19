@@ -44,14 +44,14 @@ public class PlaySkill : MonoBehaviour
                 this.transform.position += FlashLength;
 
 
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 5), Mathf.Clamp(transform.position.y, 0, 4), 0);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 3), Mathf.Clamp(transform.position.y, 0, 4), 0);
 
             }
             if (playerController.inputDirection.x < 0)
             {
                 this.transform.position -= FlashLength;
 
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 5), Mathf.Clamp(transform.position.y, 0, 4), 0);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1, 3), Mathf.Clamp(transform.position.y, 0, 4), 0);
 
             }
         }
