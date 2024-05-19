@@ -9,6 +9,23 @@ public class MapAdd : MonoBehaviour
     public int numberOfMaps = 5; // 生成的地圖片段數量
     public float moveSpeed = 2f; // 地圖移動速度
     private List<Transform> generatedMaps = new List<Transform>();
+
+
+    public Material material; // Reference to the material you want to control
+    public Material material2; // Reference to the material you want to control
+    public Material material3;
+    public Material material_back;
+    public Vector2 offsetSpeed = new Vector2(2f, 2f); // Speed of the UV offset change
+    private Vector2 currentOffset = Vector2.zero;
+    private Vector2 currentOffset2 = Vector2.zero;
+    private Vector2 currentOffset3 = Vector2.zero;
+    private Vector2 currentOffset_back = Vector2.zero;
+    public float currentOffsetSpeed1 = 15f;
+    public float currentOffsetSpeed2 = 15f;
+    public float currentOffsetSpeed3 = 25f;
+    public float currentOffsetSpeed_back = 15f;
+
+
     void Awake()
     {
         // 生成第一個地圖片段
@@ -38,6 +55,49 @@ public class MapAdd : MonoBehaviour
         foreach (Transform mapTransform in generatedMaps)
         {
             mapTransform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        }
+
+        // Update the UV offset
+        currentOffset += offsetSpeed * Time.deltaTime* currentOffsetSpeed1;
+        currentOffset2 += offsetSpeed * Time.deltaTime* currentOffsetSpeed2;
+        currentOffset3 += offsetSpeed * Time.deltaTime* currentOffsetSpeed3;
+        currentOffset_back += offsetSpeed * Time.deltaTime* currentOffsetSpeed_back;
+        // Apply the UV offset to the material
+        material.mainTextureOffset = new Vector2(material.mainTextureOffset.x, currentOffset.y);
+
+        material2.mainTextureOffset = new Vector2(currentOffset2.x, material2.mainTextureOffset.y);
+
+        material3.mainTextureOffset = new Vector2(currentOffset3.x, material3.mainTextureOffset.y);
+
+        material_back.mainTextureOffset = new Vector2(currentOffset_back.x, material_back.mainTextureOffset.y);
+
+        if(currentOffset.x > 1)
+        {
+            currentOffset = new Vector2(0, currentOffset.y);
+        }
+        if(currentOffset.y > 1)
+        {
+            currentOffset = new Vector2(currentOffset.x, 0);
+        }
+        if(currentOffset2.y > 1)
+        {
+            currentOffset2 = new Vector2(currentOffset2.x, 0);
+        }
+        if(currentOffset2.x > 1)
+        {
+            currentOffset2 = new Vector2(0, currentOffset2.y);
+        }
+        if(currentOffset3.y > 1)
+        {
+            currentOffset3 = new Vector2(currentOffset3.x, 0);
+        }
+        if(currentOffset3.x > 1)
+        {
+            currentOffset3 = new Vector2(0, currentOffset3.y);
+        }
+        if(currentOffset_back.y > 1)
+        {
+            currentOffset_back = new Vector2(currentOffset_back.x, 0);
         }
     }
 }
