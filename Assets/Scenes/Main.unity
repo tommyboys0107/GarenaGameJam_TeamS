@@ -274,11 +274,206 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: chooseWithKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Name
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 1d406b50-8314-49f1-8fc7-5e6dcbe42ba3
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 0d23714c-2f7b-4a80-bc06-da8394719b4c
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 729dc66a-d746-4db8-bb8b-4b4a1a2a62dd
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/u
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[1].m_Name
+      value: modifier
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[2].m_Name
+      value: binding
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Flags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[1].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[2].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 937455047969827677, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955177076726240928, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: chooseWithKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Name
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 50815d96-1da4-432b-aa62-4f36408da672
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/o
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495142824604802314, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751430280646587495, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737701543902017914, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: chooseWithKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Name
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: c917c5cf-0343-4e9b-b227-e0a218b0e574
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/i
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985852456939229207, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Input
+      objectReference: {fileID: 0}
     - target: {fileID: 5661577352538434368, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 562200662}
+    - target: {fileID: 6679566544309656509, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952045502487662381, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

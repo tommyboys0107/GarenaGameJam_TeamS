@@ -1,7 +1,8 @@
-using System;
 using CliffLeeCL;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class SkillUI : MonoBehaviour
@@ -12,14 +13,20 @@ public class SkillUI : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] bool disableOnChoose = false;
     [SerializeField] bool showInputKey = true;
+    [SerializeField] bool chooseWithKeyboard = false;
+    [SerializeField] [ShowIf("chooseWithKeyboard")] InputAction inputAction;
     
     SkillType skillType;
     int currentSkillIndex;
 
     private void OnEnable()
     {
-       EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
-       EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
+        if (chooseWithKeyboard)
+        {
+            inputAction.Enable();
+        }
+        EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
+        EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
     }
 
 
@@ -28,7 +35,18 @@ public class SkillUI : MonoBehaviour
         EventManager.Instance.onChooseChaserSkill -= OnChooseChaserSkill;
         EventManager.Instance.onChooseEscaperSkill -= OnChooseEscaperSkill;
     }
-    
+
+    private void Update()
+    {
+        if (chooseWithKeyboard)
+        {
+            if (inputAction.triggered)
+            {
+                OnClicked();
+            }
+        }
+    }
+
     private void OnChooseEscaperSkill(EscaperSkill obj)
     {
         if (skillType == SkillType.Escaper && disableOnChoose)
