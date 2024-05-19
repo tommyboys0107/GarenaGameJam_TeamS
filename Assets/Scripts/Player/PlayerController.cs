@@ -73,22 +73,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         this.inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-        if (Keyboard.current.wKey.wasPressedThisFrame)
-        {
-            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.Flash);
-        }
-        if (Keyboard.current.digit2Key.wasPressedThisFrame)
-        {
-            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.SpeedUp);
-        }
-        if (Keyboard.current.digit3Key.wasPressedThisFrame)
-        {
-            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.DoubleJump);
-        }
-        if (Keyboard.current.digit4Key.wasPressedThisFrame)
-        {
-            EventManager.Instance.OnChooseEscaperSkill(EscaperSkill.Shield);
-        }
 
 
         if (Keyboard.current.jKey.wasPressedThisFrame)
