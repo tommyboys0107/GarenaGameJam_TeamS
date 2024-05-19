@@ -13,6 +13,7 @@ public class MapAdd : MonoBehaviour
     {
         // 生成第一個地圖片段
         Transform previousMap = Instantiate(map[Random.Range(0, map.Length)].transform, mapNow.position, mapNow.rotation);
+        previousMap.gameObject.SetActive(true);
         generatedMaps.Add(previousMap);
 
         // 生成其餘的地圖片段
@@ -23,6 +24,7 @@ public class MapAdd : MonoBehaviour
 
             // 隨機選擇一個地圖預製件進行生成
             Transform newMap = Instantiate(map[Random.Range(0, map.Length)].transform, newPosition, Quaternion.identity);
+            newMap.gameObject.SetActive(true);
             generatedMaps.Add(newMap);
 
             // 更新 previousMap 以便下一次生成
