@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!playSkill.coolTime)
             {
-                EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Shield, playSkill.ShieldCoolTime);
+                EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Shield, playSkill.shieldTime);
                 StartCoroutine(playSkill.Shield());
             }
         }

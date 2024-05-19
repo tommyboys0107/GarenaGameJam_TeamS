@@ -12,7 +12,7 @@ public class PlaySkill : MonoBehaviour
     public int healthNumber;
     public int SpeedNumber;
 
-    public float shieldTime;
+    public int shieldTime;
     [Header("是否打開技能")]
     public bool canFlash;
     public bool canHealth;
@@ -61,6 +61,7 @@ public class PlaySkill : MonoBehaviour
         if (this.canHealth)
         {
             character.AddHealth(healthNumber);
+            canHealth = false;
         }
     }
 
