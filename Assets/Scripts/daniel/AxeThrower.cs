@@ -50,6 +50,7 @@ public class AxeThrower : MonoBehaviour
     {
         //監聽中控傳來技能升級
         EventManager.Instance.onChooseChaserSkill += ChooseAxeMode;
+        EventManager.Instance.onGameOver += GameOver;
         trajectoryRenderer = FindObjectOfType<TrajectoryRenderer>();
     }
 
@@ -57,6 +58,11 @@ public class AxeThrower : MonoBehaviour
     {
         // 取消監聽
         EventManager.Instance.onChooseChaserSkill -= ChooseAxeMode;
+    }
+
+    void GameOver()
+    {
+        canAtt = false;
     }
 
     /// <summary>
@@ -119,8 +125,7 @@ public class AxeThrower : MonoBehaviour
         // 按下滑鼠左鍵並且冷卻時間小於等於0
         if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f && canAtt && !EventSystem.current.IsPointerOverGameObject())
         {
-            animator.SetTrigger("Att");
-            ThrowAxe();
+            StartCoroutine(ThrowAxe());
             cooldownTimer = cooldownTime;
         }
         // 按下滑鼠右鍵
@@ -135,8 +140,10 @@ public class AxeThrower : MonoBehaviour
     }
 
     // 拋出斧頭
-    public void ThrowAxe()
+    public IEnumerator ThrowAxe()
     {
+        animator.SetTrigger("Att");
+        yield return new WaitForSeconds(0.1f);
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
         axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
@@ -199,7 +206,7 @@ public class AxeThrower : MonoBehaviour
     /// <returns></returns>
     IEnumerator BoomerangDart(GameObject axe, Vector3 returnPosition)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.1f);
 
         if (axe == null)
         {
@@ -232,6 +239,7 @@ public class AxeThrower : MonoBehaviour
     {
         Debug.Log("Feints");
         GameObject axe = Instantiate(FeintsAxe, throwPoint.position, throwPoint.rotation);
+        axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
         axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
