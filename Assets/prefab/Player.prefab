@@ -190,7 +190,19 @@ MonoBehaviour:
   currentHealth: 0
   OnHealthChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c3f6d48bce7970c468fc5647fa8f995c, type: 2}
+        m_TargetAssemblyTypeName: CharacterSO, Assembly-CSharp
+        m_MethodName: RaisEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7132884734773498727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,6 +2092,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 381436452784249459}
     m_Modifications:
+    - target: {fileID: 212115971577360220, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_text
+      value: O
+      objectReference: {fileID: 0}
     - target: {fileID: 332852535246085434, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
       propertyPath: showInputKey
@@ -2146,6 +2163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571762603147024651, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_text
+      value: U
       objectReference: {fileID: 0}
     - target: {fileID: 5146872088981925682, guid: ba3d91c314f147d42bd9288386e783d0,
         type: 3}
@@ -2308,6 +2330,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8593402310015722049, guid: ba3d91c314f147d42bd9288386e783d0,
+        type: 3}
+      propertyPath: m_text
+      value: I
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2410,7 +2437,7 @@ PrefabInstance:
     - target: {fileID: 6110392983942169533, guid: e459fef5b492ade48b2e546d5caefd37,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.15
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 6110392983942169533, guid: e459fef5b492ade48b2e546d5caefd37,
         type: 3}
@@ -2427,10 +2454,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6491645757747897454, guid: e459fef5b492ade48b2e546d5caefd37,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852421303252513628, guid: e459fef5b492ade48b2e546d5caefd37,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 7865679802252479912, guid: e459fef5b492ade48b2e546d5caefd37,
         type: 3}
       propertyPath: m_Name
       value: StatBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264794463770292676, guid: e459fef5b492ade48b2e546d5caefd37,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
