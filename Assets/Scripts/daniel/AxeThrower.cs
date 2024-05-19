@@ -73,7 +73,7 @@ public class AxeThrower : MonoBehaviour
     void Remake()
     {
         canAtt = true;
-        throwForce = 6f;
+        throwForce = 8f;
         upwardForce = 2f;
         cooldownTime = 1f;
         speed = 0.8f;
