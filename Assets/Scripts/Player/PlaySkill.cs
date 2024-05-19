@@ -11,6 +11,7 @@ public class PlaySkill : MonoBehaviour
     public int FlashCoolTime;
     public int healthNumber;
     public int SpeedNumber;
+    public int shieldCoolTime;
 
     public int shieldTime;
     [Header("是否打開技能")]
@@ -33,11 +34,12 @@ public class PlaySkill : MonoBehaviour
     }
 
 
-
-    public void Flash()
+    public bool flashCollTime = false;
+    public IEnumerator Flash()
     {
         if (this.canFlash)
         {
+            flashCollTime = true;
             if (playerController.inputDirection.x > 0)
             {
                 this.transform.position += FlashLength;
@@ -54,6 +56,8 @@ public class PlaySkill : MonoBehaviour
 
             }
         }
+        yield return new WaitForSeconds(FlashCoolTime);
+        flashCollTime = false;
     }
 
     public void Health()
@@ -101,8 +105,9 @@ public class PlaySkill : MonoBehaviour
             ShieldGO.SetActive(true);
             coolTime = true;
             yield return new WaitForSeconds(shieldTime);
-            coolTime = false;
             ShieldGO.SetActive(false);
+            yield return new WaitForSeconds(shieldCoolTime);
+            coolTime = false;
             Debug.LogError("1234");
         }
     }

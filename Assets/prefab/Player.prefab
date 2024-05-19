@@ -189,7 +189,8 @@ MonoBehaviour:
   FlashCoolTime: 2
   healthNumber: 50
   SpeedNumber: 150
-  shieldTime: 5
+  shieldCoolTime: 5
+  shieldTime: 1
   canFlash: 0
   canHealth: 0
   canSpeed: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   canToubleJump: 0
   speedCoolDown: 0
   ShieldGO: {fileID: 3691770785268024419}
+  flashCollTime: 0
   coolTime: 0
 --- !u!1 &3691770785268024419
 GameObject:
