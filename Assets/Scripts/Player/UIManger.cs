@@ -40,6 +40,7 @@ public class UIManger : MonoBehaviour
 
     public void Restart()
     {
+        Debug.LogError("重新開始");
         GG.SetActive(false);
         cWin.SetActive(false);
         eWin.SetActive(false);
