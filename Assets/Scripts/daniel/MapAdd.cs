@@ -71,33 +71,5 @@ public class MapAdd : MonoBehaviour
 
         material_back.mainTextureOffset = new Vector2(currentOffset_back.x, material_back.mainTextureOffset.y);
 
-        if(currentOffset.x > 1)
-        {
-            currentOffset = new Vector2(0, currentOffset.y);
-        }
-        if(currentOffset.y > 1)
-        {
-            currentOffset = new Vector2(currentOffset.x, 0);
-        }
-        if(currentOffset2.y > 1)
-        {
-            currentOffset2 = new Vector2(currentOffset2.x, 0);
-        }
-        if(currentOffset2.x > 1)
-        {
-            currentOffset2 = new Vector2(0, currentOffset2.y);
-        }
-        if(currentOffset3.y > 1)
-        {
-            currentOffset3 = new Vector2(currentOffset3.x, 0);
-        }
-        if(currentOffset3.x > 1)
-        {
-            currentOffset3 = new Vector2(0, currentOffset3.y);
-        }
-        if(currentOffset_back.y > 1)
-        {
-            currentOffset_back = new Vector2(currentOffset_back.x, 0);
-        }
     }
 }
