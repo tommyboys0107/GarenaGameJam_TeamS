@@ -56,7 +56,7 @@ public class AxeThrower : MonoBehaviour
         //監聽中控傳來技能升級
         EventManager.Instance.onChooseChaserSkill += ChooseAxeMode;
         EventManager.Instance.onGameOver += GameOver;
-        EventManager.Instance.onGameStart += Remake;
+        EventManager.Instance.onReStart += Remake;
         trajectoryRenderer = FindObjectOfType<TrajectoryRenderer>();
     }
 
@@ -65,12 +65,13 @@ public class AxeThrower : MonoBehaviour
         // 取消監聽
         EventManager.Instance.onChooseChaserSkill -= ChooseAxeMode;
         EventManager.Instance.onGameOver -= GameOver;
-        EventManager.Instance.onGameStart -= Remake;
+        EventManager.Instance.onReStart -= Remake;
     }
 
     void GameOver()
     {
         canAtt = false;
+        this.StopAllCoroutines();
     }
 
     void Remake()
