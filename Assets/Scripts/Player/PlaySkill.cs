@@ -11,7 +11,6 @@ public class PlaySkill : MonoBehaviour
     public int FlashCoolTime;
     public int healthNumber;
     public int SpeedNumber;
-    public int ShieldCoolTime;
 
     public float shieldTime;
     [Header("是否打開技能")]
@@ -91,13 +90,17 @@ public class PlaySkill : MonoBehaviour
         }
     }
 
+    public bool coolTime = false;
+
     public IEnumerator Shield()
     {
         if (canShield)
         {
             //攻擊到一次、時間到
             ShieldGO.SetActive(true);
+            coolTime = true;
             yield return new WaitForSeconds(shieldTime);
+            coolTime = false;
             ShieldGO.SetActive(false);
             Debug.LogError("1234");
         }

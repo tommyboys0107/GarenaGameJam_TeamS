@@ -185,12 +185,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1144783429889860518}
   playerController: {fileID: 5959960346937185532}
-  FlashLength: {x: 2, y: 0, z: 0}
-  FlashCoolTime: 0
+  FlashLength: {x: 1, y: 0, z: 0}
+  FlashCoolTime: 2
   healthNumber: 50
   SpeedNumber: 150
-  ShieldCoolTime: 0
-  shieldTime: 15
+  ShieldCoolTime: 5
+  shieldTime: 5
   canFlash: 0
   canHealth: 0
   canSpeed: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   canToubleJump: 0
   speedCoolDown: 0
   ShieldGO: {fileID: 3691770785268024419}
+  coolTime: 0
 --- !u!1 &3691770785268024419
 GameObject:
   m_ObjectHideFlags: 0

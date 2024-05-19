@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+        playSkill.coolTime = false;
+
         inputControl.Enable();
         EventManager.Instance.onChooseEscaperSkill += OpenSkill;
     }
@@ -86,8 +88,11 @@ public class PlayerController : MonoBehaviour
         }
         if (Keyboard.current.lKey.wasPressedThisFrame)
         {
-            EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Shield, playSkill.ShieldCoolTime);
-            StartCoroutine(playSkill.Shield());
+            if (!playSkill.coolTime)
+            {
+                EventManager.Instance.OnUseEscaperSkill(EscaperSkill.Shield, playSkill.ShieldCoolTime);
+                StartCoroutine(playSkill.Shield());
+            }
         }
     }
 
