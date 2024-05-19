@@ -143,7 +143,7 @@ public class AxeThrower : MonoBehaviour
     public IEnumerator ThrowAxe()
     {
         animator.SetTrigger("Att");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
         axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
