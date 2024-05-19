@@ -44,6 +44,6 @@ public class UIManger : MonoBehaviour
         GG.SetActive(false);
         cWin.SetActive(false);
         eWin.SetActive(false);
-        EventManager.Instance.OnGameOver();
+        EventManager.Instance.OnReStart();
     }
 }

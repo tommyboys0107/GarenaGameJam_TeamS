@@ -35,6 +35,7 @@ namespace CliffLeeCL
             EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
             EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
             EventManager.Instance.onGameOver += OnGameOver;
+            EventManager.Instance.onReStart += Restart;
         }
 
         /// <summary>
@@ -106,6 +107,7 @@ namespace CliffLeeCL
             escaperSkillList = new List<EscaperSkill>();
             EventManager.Instance.OnGameStart();
             uiManger = FindObjectOfType<UIManger>();
+            currentChooseSkillCount = 0;
         }
 
         void OnRoundTimeIsUp()

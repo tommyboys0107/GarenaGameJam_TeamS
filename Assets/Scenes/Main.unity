@@ -623,54 +623,24 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &920894700
+--- !u!1 &701458292 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4479842285237391114, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 920894702}
-  - component: {fileID: 920894701}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &920894701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &725242952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5159185540758196290, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920894700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c413e7d4723a2484fb4ea29a13a113d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roundTime: 60
-  chooseSkillTime: 10
-  chooseSkillCount: 3
-  uiManger: {fileID: 0}
---- !u!4 &920894702
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &1141212818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3106658063772831692, guid: a53b6cb6e9197ec4581269b1276f196f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652695379183678720}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920894700}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3166804, y: 2.0259771, z: 0.13212137}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182485331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2077295792934774531, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
@@ -798,9 +768,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthEvent: {fileID: 11400000, guid: c3f6d48bce7970c468fc5647fa8f995c, type: 2}
   playerStartBar: {fileID: 1182485331}
-  GG: {fileID: 0}
-  cWin: {fileID: 0}
-  eWin: {fileID: 0}
+  GG: {fileID: 1141212818}
+  cWin: {fileID: 725242952}
+  eWin: {fileID: 701458292}
 --- !u!4 &1817055520
 Transform:
   m_ObjectHideFlags: 0
@@ -1162,6 +1132,11 @@ PrefabInstance:
       propertyPath: uiManger
       value: 
       objectReference: {fileID: 1817055519}
+    - target: {fileID: 3918433371399941620, guid: a4b50f8249ad4de469509b2b2cf75cf8,
+        type: 3}
+      propertyPath: roundTime
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3979470969694373059, guid: a4b50f8249ad4de469509b2b2cf75cf8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1560,7 +1535,7 @@ PrefabInstance:
     - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
@@ -1584,13 +1559,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: CliffLeeCL.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7501483271678163510, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
@@ -1600,7 +1590,7 @@ PrefabInstance:
     - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
@@ -1624,13 +1614,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: CliffLeeCL.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7812295905560076720, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}

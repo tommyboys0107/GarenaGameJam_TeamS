@@ -32,7 +32,7 @@ namespace CliffLeeCL
         /// </summary>
         public event Action onGameOver;
         public event Action onGameStart;
-        
+        public event Action onReStart;
         public event Action<ChaserSkill> onChooseChaserSkill;
         public event Action<EscaperSkill> onChooseEscaperSkill;
 
@@ -70,6 +70,11 @@ namespace CliffLeeCL
             Debug.Log($"OnChooseEscaperSkill {skill} cd:{coolTime} event is invoked!");
         }
 
+        public void OnReStart()
+        {
+            onReStart?.Invoke();
+            Debug.Log("OnReStart event is invoked!");
+        }
 
 
     }
