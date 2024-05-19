@@ -2,10 +2,13 @@ using CliffLeeCL;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class AxeThrower : MonoBehaviour
 {
+    // 角色動畫
+    public Animator animator;
     // 斧頭預置物
     public GameObject axePrefab;
     // 假武器預置物
@@ -13,7 +16,7 @@ public class AxeThrower : MonoBehaviour
     // 拋射點
     public Transform throwPoint;
     // 拋射力道
-    public float throwForce = -8f;
+    public float throwForce = 8f;
     // 上升力道
     public float upwardForce = 2f;
     // 冷卻時間
@@ -114,14 +117,16 @@ public class AxeThrower : MonoBehaviour
     {
         cooldownTimer -= Time.deltaTime;
         // 按下滑鼠左鍵並且冷卻時間小於等於0
-        if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f && canAtt)
+        if (Mouse.current.leftButton.wasPressedThisFrame && cooldownTimer <= 0f && canAtt && !EventSystem.current.IsPointerOverGameObject())
         {
+            animator.SetTrigger("Att");
             ThrowAxe();
             cooldownTimer = cooldownTime;
         }
         // 按下滑鼠右鍵
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Mouse.current.rightButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
         {
+            animator.SetTrigger("Att");
             //可以使用軌跡武器
             if (canUseTrajectoryWeapon)
                 Feints();
@@ -133,6 +138,7 @@ public class AxeThrower : MonoBehaviour
     public void ThrowAxe()
     {
         GameObject axe = Instantiate(axePrefab, throwPoint.position, throwPoint.rotation);
+        axe.transform.position = axe.transform.position + axe.transform.up * 0.5f;
         Rigidbody2D rb = axe.GetComponent<Rigidbody2D>();
         axe.transform.rotation = Quaternion.Euler(0, 0, 0);
         axe.SetActive(true);
