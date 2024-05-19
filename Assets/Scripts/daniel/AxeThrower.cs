@@ -51,6 +51,7 @@ public class AxeThrower : MonoBehaviour
         //監聽中控傳來技能升級
         EventManager.Instance.onChooseChaserSkill += ChooseAxeMode;
         EventManager.Instance.onGameOver += GameOver;
+        EventManager.Instance.onGameStart += Remake;
         trajectoryRenderer = FindObjectOfType<TrajectoryRenderer>();
     }
 
@@ -58,11 +59,27 @@ public class AxeThrower : MonoBehaviour
     {
         // 取消監聽
         EventManager.Instance.onChooseChaserSkill -= ChooseAxeMode;
+        EventManager.Instance.onGameOver -= GameOver;
+        EventManager.Instance.onGameStart -= Remake;
     }
 
     void GameOver()
     {
         canAtt = false;
+    }
+
+    void Remake()
+    {
+        canAtt = true;
+        throwForce = 9f;
+        upwardForce = 2f;
+        cooldownTime = 1f;
+        speed = 0.8f;
+        gravityScale = 1f;
+        damage = 10;
+        isBoomerang = false;
+        canUseTrajectoryWeapon = false;
+        currentMode = AxeMode.Parabolic;
     }
 
     /// <summary>
