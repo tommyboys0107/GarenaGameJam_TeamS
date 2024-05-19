@@ -35,7 +35,6 @@ namespace CliffLeeCL
             EventManager.Instance.onChooseChaserSkill += OnChooseChaserSkill;
             EventManager.Instance.onChooseEscaperSkill += OnChooseEscaperSkill;
             EventManager.Instance.onGameOver += OnGameOver;
-            EventManager.Instance.onGameStart += Restart;
         }
 
         /// <summary>
@@ -106,6 +105,7 @@ namespace CliffLeeCL
             chaserSkillList = new List<ChaserSkill>();
             escaperSkillList = new List<EscaperSkill>();
             EventManager.Instance.OnGameStart();
+            uiManger = FindObjectOfType<UIManger>();
         }
 
         void OnRoundTimeIsUp()
@@ -120,8 +120,9 @@ namespace CliffLeeCL
             isGameOver = true;
             Time.timeScale = 0.0f;
         }
-        void Restart()
+        public void Restart()
         {
+            Debug.LogError("LoadScene Main");
             isGameOver = false;
             Time.timeScale = 1.0f;
             SceneManager.LoadScene("Main");

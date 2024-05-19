@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - BG
+  - Weapon
+  - Shield
+  - UIManger
   layers:
   - Default
   - TransparentFX

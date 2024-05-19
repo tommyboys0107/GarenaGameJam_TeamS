@@ -49,6 +49,7 @@ MonoBehaviour:
   roundTime: 60
   chooseSkillTime: 10
   chooseSkillCount: 3
+  uiManger: {fileID: 0}
 --- !u!114 &165479309464670424
 MonoBehaviour:
   m_ObjectHideFlags: 0
