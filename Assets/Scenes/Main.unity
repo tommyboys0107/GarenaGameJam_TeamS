@@ -274,25 +274,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1791591531780164775, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+    - target: {fileID: 5661577352538434368, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802996143093176693, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 562200662}
+    - target: {fileID: 7515564931255212146, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0014
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802996143093176693, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.0014
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802996143093176693, guid: c837b39da6b3b894da7d2bd7b0fe8d61,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0042
+      propertyPath: m_AnchoredPosition.y
+      value: -0.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -980,6 +970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496401687242102569, guid: a53b6cb6e9197ec4581269b1276f196f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9063024914652326333, guid: a53b6cb6e9197ec4581269b1276f196f,
         type: 3}
